@@ -19,6 +19,7 @@ export default class Hasil extends Component {
     };
   }
 
+  // Tampilan isi keranjang
   handleShow = (menuKeranjang) => {
     this.setState({
       showModal: true,
@@ -34,14 +35,14 @@ export default class Hasil extends Component {
       showModal: false,
     });
   };
-
+  //  fungsi tambah produk
   tambah = () => {
     this.setState({
       jumlah: this.state.jumlah + 1,
       totalHarga: this.state.keranjangDetail.product.harga * (this.state.jumlah + 1),
     });
   };
-
+  // fungsi kurangi produk
   kurang = () => {
     if (this.state.jumlah !== 1) {
       this.setState({
@@ -74,14 +75,14 @@ export default class Hasil extends Component {
       .then((res) => {
         swal({
           title: "Update Pesanan!",
-          text: "Sukses Update Pesanan " + data.product.nama,
+          text: "Berhasil Update Pesanan " + data.product.nama,
           icon: "success",
           button: false,
-          timer: 1500,
+          timer: 1000,
         });
       })
       .catch((error) => {
-        console.log("Error yaa ", error);
+        console.log(error);
       });
   };
 
@@ -93,14 +94,14 @@ export default class Hasil extends Component {
       .then((res) => {
         swal({
           title: "Hapus Pesanan!",
-          text: "Sukses Hapus Pesanan " + this.state.keranjangDetail.product.nama,
+          text: "Berhasil Hapus Pesanan " + this.state.keranjangDetail.product.nama,
           icon: "error",
           button: false,
-          timer: 1500,
+          timer: 1000,
         });
       })
       .catch((error) => {
-        console.log("Error yaa ", error);
+        console.log(error);
       });
   };
 
